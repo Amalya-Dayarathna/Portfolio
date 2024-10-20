@@ -393,11 +393,11 @@ const PortfolioWebsite = () => {
               <span
                 className={`bg-clip-text text-transparent bg-gradient-to-r ${
                   isDarkMode
-                    ? "from-blue-400 to-purple-500"
-                    : "from-blue-600 to-purple-700"
+                    ? "from-orange-400 to-purple-600"
+                    : "from-green-600 to-purple-700"
                 }`}
               >
-                GEHAN SATHUSHKA
+                AMALYA DAYARATHNA
               </span>
             </motion.h1>
 
