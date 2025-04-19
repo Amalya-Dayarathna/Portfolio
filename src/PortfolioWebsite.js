@@ -186,14 +186,24 @@ const PortfolioWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const controls = useAnimation();
 
+  // Create refs at the top level
+  const homeRef = useRef(null);
+  const whyHireMeRef = useRef(null);
+  const aboutRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+  const experienceRef = useRef(null);
+  const contactRef = useRef(null);
+
+  // Then use them in the memoized object
   const sectionRefs = useMemo(() => ({
-    home: useRef(null),
-    whyHireMe: useRef(null),
-    about: useRef(null),
-    skills: useRef(null),
-    projects: useRef(null),
-    experience: useRef(null),
-    contact: useRef(null),
+    home: homeRef,
+    whyHireMe: whyHireMeRef,
+    about: aboutRef,
+    skills: skillsRef,
+    projects: projectsRef,
+    experience: experienceRef,
+    contact: contactRef,
   }), []);
 
   useEffect(() => {
