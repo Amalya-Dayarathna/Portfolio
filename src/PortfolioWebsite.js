@@ -30,37 +30,58 @@ import {
   Send,
   X,
   Menu,
+  Hash,
 } from "lucide-react";
 import Typewriter from "typewriter-effect";
-import profileImage from "./images/main.jpeg";
+import profileImage from "./images/main2.jpg";
 import maingif from "./images/2.gif";
-import resumePDF from "./Gehan_Software_Engineer_CV.pdf";
+import resumePDF from "./Amalya Dayarathna - Associate Software Engineer.pdf";
+import emailjs from 'emailjs-com';
+
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      'service_jm5wkyf',       // Service ID
+      'template_m2v9xhs',      // Template ID
+      e.target,
+      'CVpa8YIiqD8P7u05_'        // Public ID --> Account
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+        alert("Message sent successfully!");
+      },
+      (error) => {
+        console.log(error.text);
+        alert("Failed to send the message.");
+      }
+    );
+
+  e.target.reset(); // clear form after submission
+};
+
 
 const skills = {
   frontend: [
     { name: "HTML", icon: <FileCode className="w-6 h-6" /> },
     { name: "CSS", icon: <FileCode className="w-6 h-6" /> },
     { name: "JavaScript", icon: <Code className="w-6 h-6" /> },
-    { name: "TypeScript", icon: <Code className="w-6 h-6" /> },
     { name: "ReactJs", icon: <Globe className="w-6 h-6" /> },
-    {
-      name: "Vue.js",
-      icon: (
-        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M24,1.61H14.06L12,5.16,9.94,1.61H0L12,22.39ZM12,14.08,5.16,2.23H9.59L12,6.41l2.41-4.18h4.43Z" />
-        </svg>
-      ),
-    },
-    { name: "Vite JS", icon: <Zap className="w-6 h-6" /> },
+    
+    { name: "Dart", icon: <FileCode className="w-6 h-6" /> },
     { name: "Bootstrap", icon: <FileCode className="w-6 h-6" /> },
+    { name: "React Native", icon: <Smartphone className="w-6 h-6" /> },
     { name: "Material UI", icon: <Smartphone className="w-6 h-6" /> },
     { name: "Tailwind CSS", icon: <Cpu className="w-6 h-6" /> },
   ],
   backend: [
     { name: "Node JS", icon: <Server className="w-6 h-6" /> },
     { name: "Express JS", icon: <Server className="w-6 h-6" /> },
-    { name: "PHP", icon: <FileCode className="w-6 h-6" /> },
     { name: "Java", icon: <Coffee className="w-6 h-6" /> },
+    { name: ".Net", icon: <Hash className="w-6 h-6" /> },
   ],
   database: [
     { name: "MongoDB", icon: <Database className="w-6 h-6" /> },
@@ -69,8 +90,8 @@ const skills = {
   other: [
     { name: "Git", icon: <GitBranch className="w-6 h-6" /> },
     { name: "BitBucket", icon: <GitBranch className="w-6 h-6" /> },
-    { name: "Flutter", icon: <Smartphone className="w-6 h-6" /> },
-    { name: "Ajax", icon: <Zap className="w-6 h-6" /> },
+    
+    { name: "Power Apps", icon: <Zap className="w-6 h-6" /> },
     { name: "REST API", icon: <Server className="w-6 h-6" /> },
     { name: "Docker", icon: <Database className="w-6 h-6" /> },
     { name: "Kubernetes", icon: <Settings className="w-6 h-6" /> },
@@ -83,26 +104,28 @@ const skills = {
 
 const projects = [
   {
-    name: "Microservice-based E-Commerce Web Application",
+    name: "Synergetic Innovation in Gherkin Cultivation ",
     description:
-      "Developed a full-stack e-commerce website with microservice architecture, allowing admin users to perform CRUD operations for products, while customers can add products to their cart, make purchases through PayPal Sandbox, and have records reflected in the admin panel.",
+      "The final year research project developed to improve the Gherkin  cultivation in Sri Lanka. This mobile application containing pest identification, disease identification, harvest prediction and cost prediction functionalities. I developed the harvest prediction component using machine learning algorithm; Random Forest which was given 97% of training accuracy.",
     tech: [
-      "ReactJs",
+      "React Native",
       "NodeJs",
-      "ExpressJs",
       "MongoDB",
       "REST API",
-      "TailwindCSS",
+      "Python",
+      "Flask",
       "Docker",
       "Kubernetes",
       "GitHub",
     ],
-    link: { type: "github", url: "https://github.com/Gehansat/ecommerce-app" },
+    link: { type: "github", url: "https://github.com/Amalya-Dayarathna/Ino-Agri-Mobile-App.git" },
+    
+    
   },
   {
-    name: "Online Coding Platform",
+    name: "Green Store",
     description:
-      "Created an online platform that allows users to create and manage folders and files, providing a real-time coding environment where code can be written, executed, and debugged with immediate output. If errors occur, the platform offers explanations to help users understand and correct them.",
+      "This web application was created for people engaged in the agricultural field. Registered farmers can sell their harvest directly to customers, and customers can order fresh vegetables and fruits through this system. Also, farmers can search for preferred weather for each crop, get details about the diseases, the preferred fertilizers for diseases, and the equipment, and order them.",
     tech: [
       "ReactJs",
       "NodeJs",
@@ -113,22 +136,15 @@ const projects = [
       "GitHub",
     ],
     link: {
-      type: "external",
-      url: "https://github.com/Gehansat/OnlineCodingPlatformWithAI.git",
+      type: "github",
+      url: "https://github.com/Amalya-Dayarathna/GreenStore.git",
     },
   },
   {
-    name: "Loan Management System for Treasury Department",
+    name: "Mobile Application for Police Savings Association",
     description:
-      "Led the creation of a comprehensive loan management system for the Treasury Department, using HTML, CSS, Bootstrap for the frontend, and pure PHP with AJAX and jQuery for the backend.",
-    tech: ["HTML", "CSS", "Bootstrap", "PHP", "AJAX", "jQuery"],
-    link: { type: "none" },
-  },
-  {
-    name: "Scholarship Management System for President's Fund",
-    description:
-      "Engineered a project for the President's Fund to efficiently manage nationwide school scholarships, employing robust web technologies.",
-    tech: ["HTML", "CSS", "Bootstrap", "PHP", "AJAX", "jQuery"],
+      "Led the creation of a comprehensive mobile application for the Police Savings Association, enable users to securely access and manage their savings and loan balances through a seamless digital experience.",
+    tech: ["Flutter", "Dart", "REST API", "Material UI", "Bit Bucket"],
     link: { type: "none" },
   },
 ];
@@ -270,7 +286,7 @@ const PortfolioWebsite = () => {
               {/* <h1 className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${isDarkMode ? 'from-blue-400 to-purple-500' : 'from-blue-600 to-purple-700'}`}>GEHAN SATHUSHKA</h1> */}
             </motion.div>
             <div className="hidden md:flex items-center space-x-6">
-              {["Projects", "Experience", "Contact"].map((item) => (
+              {[ "About", "Projects", "Experience", "Contact"].map((item) => (
                 <motion.button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -346,7 +362,7 @@ const PortfolioWebsite = () => {
             } z-40 shadow-lg`}
           >
             <div className="container mx-auto px-6 py-4">
-              {["Projects", "Experience", "Contact"].map((item) => (
+              {[ "About", "Projects", "Experience", "Contact"].map((item) => (
                 <motion.button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
@@ -451,7 +467,7 @@ const PortfolioWebsite = () => {
                   icon: <Code className="w-6 h-6" />,
                   title: "Technical Expertise",
                   content:
-                    "Proficient in React.js, Vue.js, and the MERN stack, with a strong foundation in modern web technologies.",
+                    "Proficient in Flutter and MERN Stack, with a strong foundation in modern web technologies.",
                 },
                 {
                   icon: <GitBranch className="w-6 h-6" />,
@@ -515,7 +531,7 @@ const PortfolioWebsite = () => {
               </p>
               <motion.a
                 href={resumePDF}
-                download="Gehan_Sathushka_Resume.pdf"
+                download="Amalya_Dayarathna_Resume.pdf"
                 className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -552,25 +568,35 @@ const PortfolioWebsite = () => {
                 transition={{ duration: 0.8 }}
                 className="md:w-2/3"
               >
-                <p className="text-lg mb-4 text-justify">
-                  I'm a dedicated and creative undergraduate Software Engineer
-                  with more than 1 year of software development experience.
-                  Currently pursuing a BSc (Hons) in Information Technology,
-                  specializing in Software Engineering at Sri Lanka Institute of
-                  Information Technology (SLIIT).
+                <p className="text-lg mb-4 mr-8 text-justify">
+                  Fresh graduate from Sri Lanka Institute of Information
+                  Technology (SLIIT) and more than one year experience as a
+                  software developer at Sri Lanka Telecom PLC (SLT).
                 </p>
-                <p className="text-lg mb-4 text-justify">
-                  In the fast-paced world of software development, I am
-                  passionate about solving complex problems and embracing new
-                  challenges. I am eager to apply my academic knowledge and
-                  practical skills to contribute effectively to real-world
-                  software projects.
+                <p className="text-lg mb-4 mr-8 text-justify">
+                  This role allowed me to collaborate on cutting-edge projects
+                  and develop practical expertise in software engineering. My
+                  ability to learn quickly, work diligently, and embrace new
+                  challenges makes me well-suited for contributing to innovative
+                  and dynamic teams.
                 </p>
-                <p className="text-lg text-justify">
+                <p className="text-lg mr-8 text-justify">
                   As a quick learner with a strong work ethic, I am ready to
                   adapt to industry expectations and continually enhance my
                   skill set.
                 </p>
+                <br></br>
+                <br></br>
+                <motion.a
+                href={resumePDF}
+                download="Amalya_Dayarathna_Resume.pdf"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Download className="mr-2" size={20} />
+                Download My Resume
+              </motion.a>
               </motion.div>
             </div>
           </div>
@@ -722,71 +748,28 @@ const PortfolioWebsite = () => {
                 } p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 w-full max-w-4xl`}
               >
                 <h3 className="text-2xl font-semibold mb-2">
-                  Full Stack Developer - Intern
+                  Software Developer - Including Internship
                 </h3>
                 <p
                   className={`${
                     isDarkMode ? "text-gray-400" : "text-gray-600"
                   } mb-4`}
                 >
-                  Ministry Of Finance, Colombo 01 | Jan 2024 - Aug 2024
+                  Sri Lanka Telecom PLC, Colombo 01 | Nov 2023 - Present
                 </p>
                 <ul className="list-disc list-inside mt-4 space-y-2">
-                  <li>
-                    Led the creation of a comprehensive loan management system
-                    for the Treasury Department
-                  </li>
-                  <li>
-                    Engineered a project for the President's Fund to manage
-                    nationwide school scholarships
-                  </li>
-                  <li>
-                    Excelled in full-stack development, delivering user-friendly
-                    solutions for complex governmental processes
-                  </li>
-                  <li>
-                    Ensured seamless user experiences by implementing responsive
-                    and intuitive interfaces
-                  </li>
+                <li>
+                  Developed Flutter-based mobile applications for external clients of Sri Lanka Telecom (SLT)
+                </li>
+                <li>
+                  Provided development and operational support for internal and external .NET web projects within SLT
+                </li>
+                <li>
+                  Delivered customer support and handled installation processes for SLT-developed applications deployed to external clients
+                </li>
                 </ul>
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className={`${
-                  isDarkMode ? "bg-gray-800 bg-opacity-50" : "bg-white"
-                } p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 w-full max-w-4xl`}
-              >
-                <h3 className="text-2xl font-semibold mb-2">
-                  Frontend Developer - Intern
-                </h3>
-                <p
-                  className={`${
-                    isDarkMode ? "text-gray-400" : "text-gray-600"
-                  } mb-4`}
-                >
-                  Inntri Labs (Pvt) Ltd, Colombo 07 | Jun 2023 - Dec 2023
-                </p>
-                <ul className="list-disc list-inside mt-4 space-y-2">
-                  <li>
-                    Spearheaded the development of a transport management system
-                    and a carder management system using ReactJS and TypeScript
-                  </li>
-                  <li>
-                    Played a critical role in designing, developing, and testing
-                    software applications
-                  </li>
-                  <li>
-                    Demonstrated collaboration and problem-solving skills by
-                    resolving issues and participating in code reviews
-                  </li>
-                  <li>
-                    Utilized Bitbucket for version control and adhered to best
-                    practices in coding standards, security, and documentation
-                  </li>
-                </ul>
-              </motion.div>
+              
             </div>
           </div>
         </section>
@@ -828,11 +811,11 @@ const PortfolioWebsite = () => {
                   >
                     <p className="flex items-center">
                       <Phone className="mr-4" size={24} />
-                      +94718948148
+                      +94 71 563 6691
                     </p>
                     <p className="flex items-center">
                       <Mail className="mr-4" size={24} />
-                      sathushka123@gmail.com
+                      amalyadayarathna@gmail.com
                     </p>
                     <p className="flex items-center">
                       <MapPin className="mr-4" size={24} />
@@ -841,7 +824,7 @@ const PortfolioWebsite = () => {
                   </div>
                   <div className="mt-8 flex space-x-4">
                     <motion.a
-                      href="https://github.com/Gehansat"
+                      href="https://github.com/Amalya-Dayarathna"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, rotate: 5 }}
@@ -855,7 +838,7 @@ const PortfolioWebsite = () => {
                       <Github size={24} />
                     </motion.a>
                     <motion.a
-                      href="https://www.linkedin.com/in/gehansath/"
+                      href="http://www.linkedin.com/in/amalya-dayarathna-24985b1a6"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, rotate: -5 }}
@@ -877,7 +860,9 @@ const PortfolioWebsite = () => {
                       : "bg-gray-50 bg-opacity-50"
                   }`}
                 >
-                  <form className="space-y-6">
+                  {/* <form className="space-y-6"> */}
+                  <form className="space-y-6" onSubmit={sendEmail}>
+
                     <div>
                       <label
                         htmlFor="name"
@@ -972,7 +957,7 @@ const PortfolioWebsite = () => {
       >
         <div className="container mx-auto px-6 text-center">
           <p>
-            &copy; {new Date().getFullYear()} Gehan Sathushka. All rights
+            &copy; {new Date().getFullYear()} Amalya Dayarathna. All rights
             reserved.
           </p>
         </div>
