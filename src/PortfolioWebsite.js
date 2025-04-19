@@ -185,17 +185,17 @@ const PortfolioWebsite = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const controls = useAnimation();
-  const sectionRefs = useMemo(() => ({
+  const sectionRefs = {
     
-      home: useRef(null),
-      whyHireMe: useRef(null),
-      about: useRef(null),
-      skills: useRef(null),
-      projects: useRef(null),
-      experience: useRef(null),
-      contact: useRef(null),
-    
-  }),[]);
+    home: useRef(null),
+    whyHireMe: useRef(null),
+    about: useRef(null),
+    skills: useRef(null),
+    projects: useRef(null),
+    experience: useRef(null),
+    contact: useRef(null),
+  
+};
 
   useEffect(() => {
     const handleScroll = () => {
