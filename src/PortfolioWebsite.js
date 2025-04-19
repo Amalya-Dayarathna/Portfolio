@@ -211,7 +211,7 @@ const PortfolioWebsite = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [sectionRefs]);
 
   useEffect(() => {
     controls.start({ opacity: 1, y: 0 });
