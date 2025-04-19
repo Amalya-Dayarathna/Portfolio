@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import {
   Github,
@@ -186,8 +186,7 @@ const PortfolioWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const controls = useAnimation();
 
-  const sectionRefs = {
-    
+  const sectionRefs = useMemo(() => ({
     home: useRef(null),
     whyHireMe: useRef(null),
     about: useRef(null),
@@ -195,8 +194,7 @@ const PortfolioWebsite = () => {
     projects: useRef(null),
     experience: useRef(null),
     contact: useRef(null),
-  
-  };
+  }), []);
 
   useEffect(() => {
     const handleScroll = () => {
