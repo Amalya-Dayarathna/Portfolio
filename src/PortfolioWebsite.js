@@ -185,6 +185,7 @@ const PortfolioWebsite = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const controls = useAnimation();
+
   const sectionRefs = {
     
     home: useRef(null),
@@ -195,7 +196,7 @@ const PortfolioWebsite = () => {
     experience: useRef(null),
     contact: useRef(null),
   
-};
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -213,7 +214,7 @@ const PortfolioWebsite = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [sectionRefs]);
 
   useEffect(() => {
     controls.start({ opacity: 1, y: 0 });
