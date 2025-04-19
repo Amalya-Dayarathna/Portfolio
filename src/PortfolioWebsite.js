@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
+
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import {
   Github,
@@ -185,17 +186,28 @@ const PortfolioWebsite = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const controls = useAnimation();
-  const sectionRefs = {
+//   const sectionRefs = {
     
-    home: useRef(null),
+//     home: useRef(null),
+//     whyHireMe: useRef(null),
+//     about: useRef(null),
+//     skills: useRef(null),
+//     projects: useRef(null),
+//     experience: useRef(null),
+//     contact: useRef(null),
+  
+// };
+
+const sectionRefs = useMemo(() => ({
+  home: useRef(null),
     whyHireMe: useRef(null),
     about: useRef(null),
     skills: useRef(null),
     projects: useRef(null),
     experience: useRef(null),
     contact: useRef(null),
-  
-};
+}), []);
+
 
   // useEffect(() => {
   //   const handleScroll = () => {
