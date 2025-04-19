@@ -198,14 +198,22 @@ const PortfolioWebsite = () => {
   
 // };
 
+const home = useRef(null);
+    const whyHireMe = useRef(null);
+    const about = useRef(null);
+    const skills = useRef(null);
+    const projects = useRef(null);
+    const experience = useRef(null);
+    const contact = useRef(null);
+
 const sectionRefs = useMemo(() => ({
-  home: useRef(null),
-    whyHireMe: useRef(null),
-    about: useRef(null),
-    skills: useRef(null),
-    projects: useRef(null),
-    experience: useRef(null),
-    contact: useRef(null),
+  home: home,
+    whyHireMe: whyHireMe,
+    about: about,
+    skills: skills,
+    projects: projects,
+    experience: experience,
+    contact: contact,
 }), []);
 
 
