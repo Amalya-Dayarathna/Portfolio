@@ -197,6 +197,24 @@ const PortfolioWebsite = () => {
   
 };
 
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = Object.keys(sectionRefs);
+  //     const currentSection = sections.find((section) => {
+  //       const element = sectionRefs[section].current;
+  //       if (element) {
+  //         const rect = element.getBoundingClientRect();
+  //         return rect.top <= 100 && rect.bottom >= 100;
+  //       }
+  //       return false;
+  //     });
+  //     if (currentSection) setActiveSection(currentSection);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = Object.keys(sectionRefs);
@@ -210,10 +228,11 @@ const PortfolioWebsite = () => {
       });
       if (currentSection) setActiveSection(currentSection);
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [sectionRefs]); // <-- Add sectionRefs here to the dependency array
+  
 
   useEffect(() => {
     controls.start({ opacity: 1, y: 0 });
