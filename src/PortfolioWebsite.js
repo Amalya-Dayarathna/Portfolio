@@ -145,7 +145,7 @@ const projects = [
     description:
       "Led the creation of a comprehensive mobile application for the Police Savings Association, enable users to securely access and manage their savings and loan balances through a seamless digital experience.",
     tech: ["Flutter", "Dart", "REST API", "Material UI", "Bit Bucket"],
-    link: { type: "none" },
+    link: { type: "external", url: "https://play.google.com/store/apps/details?id=com.slpsa.psaapp.v2&pcampaignid=web_share" },
   },
 ];
 
@@ -569,7 +569,7 @@ const PortfolioWebsite = () => {
               >
                 <img
                   src={profileImage}
-                  alt="Gehan Sathushka"
+                  alt="Amalya Dayarathna"
                   className="rounded-2xl w-64 h-64 object-cover mx-auto shadow-lg"
                 />
               </motion.div>
@@ -581,7 +581,7 @@ const PortfolioWebsite = () => {
               >
                 <p className="text-lg mb-4 mr-8 text-justify">
                   Fresh graduate from Sri Lanka Institute of Information
-                  Technology (SLIIT) and more than one year experience as a
+                  Technology (SLIIT) and more than two years experience as a
                   software developer at Sri Lanka Telecom PLC (SLT).
                 </p>
                 <p className="text-lg mb-4 mr-8 text-justify">
@@ -759,7 +759,7 @@ const PortfolioWebsite = () => {
                 } p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 w-full max-w-4xl`}
               >
                 <h3 className="text-2xl font-semibold mb-2">
-                  Software Developer - Including Internship
+                  Software Developer
                 </h3>
                 <p
                   className={`${
