@@ -86,6 +86,8 @@ const skills = {
   database: [
     { name: "MongoDB", icon: <Database className="w-6 h-6" /> },
     { name: "MySQL", icon: <Database className="w-6 h-6" /> },
+    { name: "PostgreSQL", icon: <Database className="w-6 h-6" /> },
+
   ],
   other: [
     { name: "Git", icon: <GitBranch className="w-6 h-6" /> },
@@ -731,7 +733,7 @@ const PortfolioWebsite = () => {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Globe className="mr-2" size={20} />
-                      Visit Github
+                      Visit Play Store
                       <ExternalLink className="ml-1" size={16} />
                     </motion.a>
                   )}
@@ -830,7 +832,7 @@ const PortfolioWebsite = () => {
                     </p>
                     <p className="flex items-center">
                       <MapPin className="mr-4" size={24} />
-                      Malabe, Sri Lanka
+                      Matara, Sri Lanka
                     </p>
                   </div>
                   <div className="mt-8 flex space-x-4">
